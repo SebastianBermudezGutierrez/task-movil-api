@@ -1,0 +1,242 @@
+
+{
+  "info": {
+    "name": "Gestión de Tareas API",
+    "description": "API REST para gestión de tareas con categorías",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Categorías",
+      "item": [
+        {
+          "name": "Obtener todas las categorías",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/categories",
+              "host": ["{{base_url}}"],
+              "path": ["categories"]
+            }
+          }
+        },
+        {
+          "name": "Obtener categoría por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/categories/1",
+              "host": ["{{base_url}}"],
+              "path": ["categories", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear nueva categoría",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nueva Categoría\",\n  \"description\": \"Descripción de la nueva categoría\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/categories",
+              "host": ["{{base_url}}"],
+              "path": ["categories"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar categoría",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Categoría Actualizada\",\n  \"description\": \"Descripción actualizada\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/categories/1",
+              "host": ["{{base_url}}"],
+              "path": ["categories", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar categoría",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/categories/1",
+              "host": ["{{base_url}}"],
+              "path": ["categories", "1"]
+            }
+          }
+        },
+      ]
+    },
+    {
+      "name": "Tareas",
+      "item": [
+        {
+          "name": "Obtener todas las tareas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tasks",
+              "host": ["{{base_url}}"],
+              "path": ["tasks"]
+            }
+          }
+        },
+        {
+          "name": "Obtener tarea por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tasks/1",
+              "host": ["{{base_url}}"],
+              "path": ["tasks", "1"]
+            }
+          }
+        },
+        {
+          "name": "Obtener tareas por categoría",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tasks/category/1",
+              "host": ["{{base_url}}"],
+              "path": ["tasks", "category", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear nueva tarea",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Nueva Tarea\",\n  \"description\": \"Descripción de la nueva tarea\",\n  \"dueDate\": \"2024-12-31T23:59:59\",\n  \"priority\": \"MEDIUM\",\n  \"categoryId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks",
+              "host": ["{{base_url}}"],
+              "path": ["tasks"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar tarea",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Tarea Actualizada\",\n  \"description\": \"Descripción actualizada\",\n  \"dueDate\": \"2024-12-25T12:00:00\",\n  \"completed\": false,\n  \"priority\": \"HIGH\",\n  \"categoryId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/1",
+              "host": ["{{base_url}}"],
+              "path": ["tasks", "1"]
+            }
+          }
+        },
+        {
+          "name": "Alternar estado de tarea",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tasks/1/toggle",
+              "host": ["{{base_url}}"],
+              "path": ["tasks", "1", "toggle"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar tarea",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/tasks/1",
+              "host": ["{{base_url}}"],
+              "path": ["tasks", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8079",
+      "type": "string"
+    }
+  ]
+}
+
+# INSTRUCCIONES DE USO:
+# 1. Abre Postman
+# 2. Haz clic en "Import" (Importar)
+# 3. Selecciona "Raw text" (Texto sin formato)
+# 4. Copia y pega todo el contenido JSON de arriba
+# 5. Haz clic en "Continue" y luego "Import"
+# 6. La colección aparecerá en tu workspace
+# 7. Asegúrate de que tu aplicación Spring Boot esté ejecutándose en http://localhost:8079
+# 8. ¡Ya puedes probar todos los endpoints!
+
+# ENDPOINTS DISPONIBLES:
+# CATEGORÍAS:
+# - GET /api/categories - Obtener todas las categorías
+# - GET /api/categories/{id} - Obtener categoría por ID
+# - POST /api/categories - Crear nueva categoría
+# - PUT /api/categories/{id} - Actualizar categoría
+# - DELETE /api/categories/{id} - Eliminar categoría
+
+# TAREAS:
+# - GET /api/tasks - Obtener todas las tareas
+# - GET /api/tasks/{id} - Obtener tarea por ID
+# - GET /api/tasks/category/{categoryId} - Obtener tareas por categoría
+# - POST /api/tasks - Crear nueva tarea
+# - PUT /api/tasks/{id} - Actualizar tarea
+# - PATCH /api/tasks/{id}/toggle - Alternar estado de completado
+# - DELETE /api/tasks/{id} - Eliminar tarea
+
+# NOTAS IMPORTANTES:
+# - Ajusta la variable "base_url" si tu aplicación corre en un puerto diferente
+# - Los IDs de ejemplo (1, 2, etc.) pueden no existir en tu base de datos
+# - Primero crea categorías antes de crear tareas
+# - Las tareas usan categoryId en lugar de objeto category
+# - Las fechas deben estar en formato ISO 8601 (YYYY-MM-DDTHH:mm:ss)
+# - Las prioridades válidas son: LOW, MEDIUM, HIGH, URGENT
